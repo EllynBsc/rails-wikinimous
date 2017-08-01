@@ -14,7 +14,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @article = Article.create(tasks_params)
+    @article = Article.create(articles_params)
     redirect_to articles_path(@articles)
   end
 
@@ -22,7 +22,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-    @article.update(tasks_params)
+    @article.update(articles_params)
     redirect_to articles_path(@article)
   end
 
@@ -32,7 +32,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
   end
 
 private
-    def tasks_params
+    def articles_params
       params.require(:article).permit(:title, :content)
     end
     def set_article
